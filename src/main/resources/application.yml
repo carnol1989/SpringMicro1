@@ -1,0 +1,32 @@
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: [TU_PASSWORD]
+        url: jdbc:postgresql://[TU_IP_SERVER_BD]/[TU_BD]
+        username: postgres
+    jackson:
+        default-property-inclusion: NON_NULL
+    jpa:
+        database: postgresql
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                jdbc:
+                    lob:
+                        non_contextual_creation: true
+        show-sql: false
+
+server:
+   port: 8080
+    
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://localhost:8761/eureka
+         
+#Seguridad
+security: 
+   oauth2:
+      resource:
+         userInfoUri: http://localhost:9999/user
